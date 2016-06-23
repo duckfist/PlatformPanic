@@ -16,6 +16,8 @@ import javafx.embed.swing.JFXPanel;
 public class GameFrame extends JFrame {
 	
     private static final long serialVersionUID = 6916867857736108028L;
+    public static final String GameVersion = "1.00"; 
+    
     private static final int DEFAULT_FPS = 60;
     public static boolean loading = true;
     private GamePanel gp;

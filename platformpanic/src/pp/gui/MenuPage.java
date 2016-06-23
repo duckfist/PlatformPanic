@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.util.Vector;
 
+import pp.game.GameFrame;
 import pp.game.GamePanel;
 
 public class MenuPage {
@@ -117,11 +118,12 @@ public class MenuPage {
         }
         g2d.setColor(Color.white);
         g2d.setFont(new Font("sanserif", 0, 10));
-        if (GamePanel.saveData.username == "") {
-            g2d.drawString("You are not logged in.", 8, 14);
-        } else {
-            g2d.drawString("Logged in as " + GamePanel.saveData.username + ".", 8, 14);
-        }
+        g2d.drawString("version " + GameFrame.GameVersion, 8 , 14);
+//        if (GamePanel.saveData.username == "") {
+//            g2d.drawString("You are not logged in.", 8, 14);
+//        } else {
+//            g2d.drawString("Logged in as " + GamePanel.saveData.username + ".", 8, 14);
+//        }
     }
 }
 
