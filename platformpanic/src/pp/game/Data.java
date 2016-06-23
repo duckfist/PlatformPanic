@@ -32,7 +32,7 @@ public class Data implements Serializable {
         }
         
         // Check if save file exists, load it if so, create one if not
-        File f = new File("myFile.txt");
+        File f = new File("save.data");
         if(f.exists() && !f.isDirectory()) {
         	
             // Load save file
@@ -48,7 +48,7 @@ public class Data implements Serializable {
     
     public void saveToFile(){
         try {
-        	FileOutputStream fos = new FileOutputStream(new File("myFile.txt"));
+        	FileOutputStream fos = new FileOutputStream(new File("save.data"));
     		ObjectOutputStream oos = new ObjectOutputStream(fos);
     		oos.writeObject(this);
     		oos.close();
@@ -61,7 +61,7 @@ public class Data implements Serializable {
     
     public void readFromFile(){
         try {
-        	FileInputStream fin = new FileInputStream ("myFile.txt");
+        	FileInputStream fin = new FileInputStream ("save.data");
         	ObjectInputStream oin = new ObjectInputStream(fin);
         	Data d = (Data)oin.readObject();
         	oin.close();
