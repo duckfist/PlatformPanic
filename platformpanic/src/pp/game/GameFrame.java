@@ -1,6 +1,5 @@
 // Platform Panic
 // by Russell Wright
-// Test GitHub push from Eclipse
 
 package pp.game;
 
@@ -16,41 +15,41 @@ import javafx.embed.swing.JFXPanel;
 
 public class GameFrame extends JFrame {
 	
-	private static final long serialVersionUID = 6916867857736108028L;
-	private static final int DEFAULT_FPS = 60;
+    private static final long serialVersionUID = 6916867857736108028L;
+    private static final int DEFAULT_FPS = 60;
     public static boolean loading = true;
     private GamePanel gp;
     JFXPanel jfx;
     MP3Player mp3player;
     
     public GameFrame() {
-    	// NOTE: Remnants from conversion of JApplet to JFrame.  Left in for reference.
-    	//       No longer used since not hosted as applet on a website.
+        // NOTE: Remnants from conversion of JApplet to JFrame.  Left in for reference.
+        //       No longer used since not hosted as applet on a website.
         //this.loadFromHTMLParams();
     	
-    	// Start JavaFX and media player for MP3 playback
-    	jfx = new JFXPanel();
-    	MP3PlayerThread mp3Thread = new MP3PlayerThread();
-    	mp3Thread.start();
-    	
-    	// Window settings
-    	super.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    	super.setTitle("Platform Panic");
-    	super.setResizable(false);
-    	
+        // Start JavaFX and media player for MP3 playback
+        jfx = new JFXPanel();
+        MP3PlayerThread mp3Thread = new MP3PlayerThread();
+        mp3Thread.start();
+        
+        // Window settings
+        super.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        super.setTitle("Platform Panic");
+        super.setResizable(false);
+        
         long period = 1000 / DEFAULT_FPS;
         this.makeGUI(period);
         this.gp.startGame();
     }
     
     public static void main(String[] args) {
-    	GameFrame f = new GameFrame ();
-    	f.setSize(532,488);
-    	f.setVisible(true);
-    	f.setLayout(new FlowLayout());
-    	
-    	// NOTE: Remnants from conversion of JApplet to JFrame.  Left in for reference.
-    	/*
+        GameFrame f = new GameFrame ();
+        f.setSize(532,488);
+        f.setVisible(true);
+        f.setLayout(new FlowLayout());
+        
+        // NOTE: Remnants from conversion of JApplet to JFrame.  Left in for reference.
+        /*
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {

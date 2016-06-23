@@ -13,10 +13,10 @@ import pp.gui.LevelCleared;
 import pp.gui.LevelClock;
 
 public class Data implements Serializable {
-
-	private static final long serialVersionUID = 5264596641407544438L;
-	
-	public LevelData[] levels = new LevelData[40];
+    
+    private static final long serialVersionUID = 5264596641407544438L;
+    
+    public LevelData[] levels = new LevelData[40];
     //public int[] player_record_array = new int[40];
     public boolean unlocked_double_jump = false;
     public String username = "default";
@@ -24,7 +24,7 @@ public class Data implements Serializable {
     public int total_jumps = 0;
     public int total_platforms_activated = 0;
     public int total_played = 0;
-
+    
     public Data() {
     	// Create level data array to store times
         for (int i = 0; i < levels.length; ++i) {
@@ -49,14 +49,14 @@ public class Data implements Serializable {
     public void saveToFile(){
         try {
         	FileOutputStream fos = new FileOutputStream(new File("myFile.txt"));
-			ObjectOutputStream oos = new ObjectOutputStream(fos);
-			oos.writeObject(this);
-			oos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    		ObjectOutputStream oos = new ObjectOutputStream(fos);
+    		oos.writeObject(this);
+    		oos.close();
+    	} catch (FileNotFoundException e) {
+    		e.printStackTrace();
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
     }
     
     public void readFromFile(){
@@ -73,7 +73,7 @@ public class Data implements Serializable {
         	this.total_platforms_activated = d.total_platforms_activated;
         	this.total_played = d.total_played;
         	this.total_time_played = d.total_time_played;
-//        	this.unlocked_double_jump = d.unlocked_double_jump;
+    //        	this.unlocked_double_jump = d.unlocked_double_jump;
         	this.unlocked_double_jump = false;
         	this.username = d.username;
         	
@@ -87,13 +87,13 @@ public class Data implements Serializable {
             level.lock();
         }
     }
-
+    
     public void unlockAll() {
         for (LevelData level : levels) {
             level.unlock();
         }
     }
-
+    
     public void unlockLevel(int level_num) {
         try {
             levels[level_num].unlock();
@@ -102,7 +102,7 @@ public class Data implements Serializable {
             System.out.println("ERROR: LevelData array hasn't been initialized, or level number " + level_num + " doesn't exist.");
         }
     }
-
+    
     public void completeLevel(int level_num) {
         try {
             levels[level_num].complete();
@@ -111,7 +111,7 @@ public class Data implements Serializable {
             System.out.println("ERROR: LevelData array hasn't been initialized, or level number " + level_num + " doesn't exist.");
         }
     }
-
+    
     public void finishLevel(int level_num) {
         try {
             levels[level_num].finish();
@@ -120,7 +120,7 @@ public class Data implements Serializable {
             System.out.println("ERROR: LevelData array hasn't been initialized, or level number " + level_num + " doesn't exist.");
         }
     }
-
+    
     public void setMostActivated(int level_num, int num_activated) {
         try {
             levels[level_num].most_activated = num_activated;
@@ -129,7 +129,7 @@ public class Data implements Serializable {
             System.out.println("ERROR: LevelData array hasn't been initialized, or level number " + level_num + " doesn't exist.");
         }
     }
-
+    
     public void setNumPlatforms(int level_num, int num_platforms) {
         try {
             levels[level_num].num_platforms = num_platforms;
@@ -138,7 +138,7 @@ public class Data implements Serializable {
             System.out.println("ERROR: LevelData array hasn't been initialized, or level number " + level_num + " doesn't exist.");
         }
     }
-
+    
     public void setRecordTime(int level_num, long player_record) {
         try {
             levels[level_num].player_record = player_record;
@@ -147,14 +147,14 @@ public class Data implements Serializable {
             System.out.println("ERROR: LevelData array hasn't been initialized, or level number " + level_num + " doesn't exist.");
         }
     }
-
+    
     public String getRecordTime(int level_num) {
         if (levels[level_num].player_record == 999999999) {
             return "??:??:??";
         }
         return LevelClock.getClockTime(levels[level_num].player_record * 1000000);
     }
-
+    
     public boolean getNotFinished(int level_num) {
         boolean notfinished = true;
         try {
@@ -168,7 +168,7 @@ public class Data implements Serializable {
         }
         return notfinished;
     }
-
+    
     public boolean getLocked(int level_num) {
         try {
             return levels[level_num].locked;
@@ -179,7 +179,7 @@ public class Data implements Serializable {
             return true;
         }
     }
-
+    
     public boolean getBronze(int level_num) {
         try {
             return levels[level_num].bronze;
@@ -190,7 +190,7 @@ public class Data implements Serializable {
             return false;
         }
     }
-
+    
     public boolean getSilver(int level_num) {
         try {
             return levels[level_num].silver;
@@ -201,7 +201,7 @@ public class Data implements Serializable {
             return false;
         }
     }
-
+    
     public boolean getGold(int level_num) {
         try {
             return levels[level_num].gold;
@@ -212,7 +212,7 @@ public class Data implements Serializable {
             return false;
         }
     }
-
+    
     public int getMostActivated(int level_num) {
         try {
             return levels[level_num].most_activated;
@@ -223,7 +223,7 @@ public class Data implements Serializable {
             return -1;
         }
     }
-
+    
     public int getNumPlatforms(int level_num) {
         try {
             return levels[level_num].num_platforms;
@@ -234,7 +234,7 @@ public class Data implements Serializable {
             return -1;
         }
     }
-
+    
     public boolean attemptSetRecord(int level_num, long milliseconds) {
         boolean new_record = false;
         try {
@@ -250,7 +250,7 @@ public class Data implements Serializable {
             return false;
         }
     }
-
+    
     public boolean attemptBeatGold(int level_num) {
         boolean value;
         if (levels[level_num].gold) {
@@ -259,7 +259,7 @@ public class Data implements Serializable {
         levels[level_num].gold = value = levels[level_num].player_record < LevelClock.getGoldTime(level_num);
         return value;
     }
-
+    
     public boolean attemptBeatSilver(int level_num) {
         boolean value;
         if (levels[level_num].silver) {
@@ -268,7 +268,7 @@ public class Data implements Serializable {
         levels[level_num].silver = value = levels[level_num].player_record < LevelClock.getSilverTime(level_num);
         return value;
     }
-
+    
     public boolean attemptBeatBronze(int level_num) {
         boolean value;
         if (levels[level_num].bronze) {
@@ -347,7 +347,7 @@ public class Data implements Serializable {
 
     public class LevelData implements Serializable {
     	
-    	private static final long serialVersionUID = 542135114341335L;
+        private static final long serialVersionUID = 542135114341335L;
     	
         public boolean locked = true;
         public boolean finished = false;

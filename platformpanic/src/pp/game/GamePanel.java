@@ -32,11 +32,9 @@ import pp.utilities.ImageLoader;
 import pp.utilities.Timer;
 
 public class GamePanel extends JPanel
-		implements Runnable,
-			MouseListener,
-			KeyListener {
+    implements Runnable, MouseListener, KeyListener {
 	
-	private static final long serialVersionUID = -466105191402442475L;
+    private static final long serialVersionUID = -466105191402442475L;
     private static long MAX_STATS_INTERVAL = 1000000000;
     private static int MAX_FRAME_SKIPS = 5;
     private static int NUM_FPS = 10;
@@ -134,7 +132,7 @@ public class GamePanel extends JPanel
     
     // TODO: Remove since redundant?
     public static void SaveData() {
-    	saveData.saveToFile();
+            saveData.saveToFile();
     }
 
     public void loadImages() {
