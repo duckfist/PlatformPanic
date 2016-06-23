@@ -1,3 +1,7 @@
+// Platform Panic
+// by Russell Wright
+// Test GitHub push from Eclipse
+
 package pp.game;
 
 import java.awt.BorderLayout;
