@@ -8,18 +8,18 @@ Requires the Java Runtime Environment version 8
 =======================================================================================
 
 Controls (Field)
-  Left Arrow    - Move Left 
-  Right Arrow   - Move Right
-  A             - Jump
-  Esc           - Menu/End Stage
+- Left Arrow    - Move Left 
+- Right Arrow   - Move Right
+- A             - Jump
+- Esc           - Menu/End Stage
   
 Controls (Menu)
-  Left Arrow    - Move Cursor Left
-  Right Arrow   - Move Cursor Right
-  Up Arrow      - Move Cursor Up
-  Down Arrow    - Move Cursor Down
-  A             - Confirm
-  Esc           - Cancel/Previous Menu
+- Left Arrow    - Move Cursor Left
+- Right Arrow   - Move Cursor Right
+- Up Arrow      - Move Cursor Up
+- Down Arrow    - Move Cursor Down
+- A             - Confirm
+- Esc           - Cancel/Previous Menu
   
 
 =======================================================================================
